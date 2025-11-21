@@ -12,6 +12,10 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
+const ponente_module_1 = require("./ponente/ponente.module");
+const auditorio_module_1 = require("./auditorio/auditorio.module");
+const asistente_module_1 = require("./asistente/asistente.module");
+const evento_module_1 = require("./evento/evento.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -28,7 +32,11 @@ exports.AppModule = AppModule = __decorate([
                 password: process.env.DB_PASSWORD,
                 autoLoadEntities: true,
                 synchronize: true,
-            })
+            }),
+            ponente_module_1.PonenteModule,
+            auditorio_module_1.AuditorioModule,
+            asistente_module_1.AsistenteModule,
+            evento_module_1.EventoModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
